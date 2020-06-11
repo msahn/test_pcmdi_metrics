@@ -3,6 +3,8 @@ import cdutil
 import genutil
 import MV2
 
+# This code generate class for the LandSeaMask
+
 class LandSeaMask:
     def __init__(self, data):
         self.mask = cdutil.generateLandSeaMask(data[0])
