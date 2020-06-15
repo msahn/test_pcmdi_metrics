@@ -40,9 +40,12 @@ from class_LandSeaMask import LandSeaMask
 
 mask = LandSeaMask(d)
 
+d_mask = mask.mask()
 d_land = mask.land()
 d_ocean = mask.ocean()
 
+d_mask.id = 'land_sea_mask'
+PlotBaseMap(d_mask)
 d_land.id = 'pr_land'
 PlotBaseMap(d_land[0])
 d_ocean.id = 'pr_ocean'
@@ -51,19 +54,23 @@ PlotBaseMap(d_ocean[0])
 
 # # Write data (nc file)
 
-# In[ ]:
+# In[4]:
 
+
+out = cdms.open('land_sea_mask.nc', 'w')
+out.write(d_mask)
+out.close()
 
 out = cdms.open('mask_land.nc', 'w')
-out.write(d_land[0])
+out.write(d_land)
 out.close()
 
 out = cdms.open('mask_ocean.nc', 'w')
-out.write(d_ocean[0])
+out.write(d_ocean)
 out.close()
 
 
-# In[ ]:
+# In[5]:
 
 
 get_ipython().system('jupyter nbconvert --to script test_class.ipynb')

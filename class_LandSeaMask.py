@@ -10,6 +10,10 @@ class LandSeaMask:
         self.mask = cdutil.generateLandSeaMask(data[0])
         self.d, self.mask2 = genutil.grower(data, self.mask)
 
+    def mask(self):
+        d_mask = self.mask2
+        return d_mask
+
     def land(self):
         d_mask = MV2.masked_where(self.mask2 == 0., self.d)
         return d_mask
