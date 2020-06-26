@@ -10,10 +10,6 @@ import cdms2 as cdms
 import cdutil
 import genutil
 import MV2
-import matplotlib.pyplot as plt
-import numpy as np
-from mpl_toolkits.basemap import Basemap
-from regrid2 import Regridder
 
 # Read data
 var = 'pr'
