@@ -11,7 +11,7 @@ from regrid2 import Regridder
 
 # Regrid data
 var = 'pr'
-data =  'TRMM-3B43v-7'
+data = 'TRMM-3B43v-7'
 period = '199801-201712'
 ver = 'v20200421'
 dir = '/p/user_pub/PCMDIobs/PCMDIobs2_clims/atmos/'+var+'/'+data+'/'
@@ -24,7 +24,7 @@ print(ogrid)
 # Target grid data
 dir = '/p/user_pub/PCMDIobs/PCMDIobs2_clims/atmos/pr/GPCP-2-3/'
 nc = 'pr_mon_GPCP-2-3_BE_gn_197901-201907.v20200421.AC.nc'
-ft=cdms.open(dir+nc)
+ft = cdms.open(dir+nc)
 dt = ft['pr']
 tgrid = dt.getGrid()
 print(tgrid)
@@ -34,7 +34,7 @@ regridFunc = Regridder(ogrid, tgrid)
 dr = regridFunc(d)
 
 # Write data
-out = cdms.open(var+'_mon_'+data+'_BE_gn_'+period+'.'+ver+'.AC_regrid.144x72.nc', 'w')
+out = cdms.open(var+'_mon_'+data+'_BE_gn_'+period +'.'+ver+'.AC_regrid.144x72.nc', 'w')
 out.write(dr)
 out.close()
 
